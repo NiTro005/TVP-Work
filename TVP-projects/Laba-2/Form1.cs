@@ -14,6 +14,8 @@ namespace Laba_2
     public partial class Form1 : Form
     {
         EV3 l1, l2, l3;
+        public System.Windows.Forms.ComboBox comboBox = new System.Windows.Forms.ComboBox();
+        public System.Windows.Forms.Button but1 = new System.Windows.Forms.Button();
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -26,16 +28,18 @@ namespace Laba_2
         public Form1()
         {
             InitializeComponent();
-            System.Windows.Forms.ComboBox comboBox = new System.Windows.Forms.ComboBox();
-            l1 = new EV3(150, 100, 300, 35, comboBox);
-            l3 = new EV3(150, 135, 300, 70, comboBox);
-            l2 = new EV3(150, 100, 300, 150, comboBox);
+            l1 = new EV3(150, 100, 300, 35, this);
+            l3 = new EV3(150, 135, 300, 70, this);
+            l2 = new EV3(150, 100, 300, 150, this);
 
             comboBox.Items.Add("1");
             comboBox.Items.Add("2");
             comboBox.Items.Add("3");
             comboBox.Items.Add("4");
+            but1.Text = "Режимы";
+            comboBox.SelectedIndex = 0;
             Controls.Add(comboBox);
+            Controls.Add(but1);
 
         }
     }
