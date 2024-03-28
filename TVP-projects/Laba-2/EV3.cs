@@ -24,6 +24,8 @@ namespace Laba_2
             ComboBox1.Left = x;
             ComboBox1.Top = y;
             ComboBox1.Width = w / 10;
+            ComboBox1.Height = h / 10;
+            ComboBox1.SelectedIndex = 0;
         }
         Bitmap bitmap = (Bitmap)Bitmap.FromFile("C:\\Sourse\\github\\TVP-Work\\TVP-projects\\Laba-2\\Image\\001.png");
         internal void Paint(Graphics g)
