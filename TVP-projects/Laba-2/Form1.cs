@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Laba_2
 {
@@ -25,9 +26,18 @@ namespace Laba_2
         public Form1()
         {
             InitializeComponent();
-            l1 = new EV3(150, 100, 300, 35);
-            l2 = new EV3(150, 100, 300, 150);
-            l3 = new EV3(150, 135, 300, 70);
+            System.Windows.Forms.ComboBox comboBox = new System.Windows.Forms.ComboBox();
+            l1 = new EV3(150, 100, 300, 35, comboBox);
+            l3 = new EV3(150, 135, 300, 70, comboBox);
+            l2 = new EV3(150, 100, 300, 150, comboBox);
+
+            comboBox.Items.Add("1");
+            comboBox.Items.Add("2");
+            comboBox.Items.Add("3");
+            comboBox.Items.Add("4");
+            Controls.Add(comboBox);
+
         }
     }
+    
 }
