@@ -14,9 +14,12 @@ namespace Laba_2
         int w, h;
         ComboBox ComboBox1;
         Button Button1;
+        ListBox ListBox1;
+        Bitmap bitmap1;
 
         public EV3(int x, int y, int w, int h, Form1 form)
         {
+            bitmap1 = form.bitmap;
             this.x = x;
             this.y = y;
             this.w = w;
@@ -32,14 +35,40 @@ namespace Laba_2
             Button1.Height = h / 3;
             Button1.Left = x;
             Button1.Top = y + h - Button1.Height;
+            Button1.Click += Button1_Click;
+
+            ListBox1 = form.list1;
+            ListBox1.Width = w /2;
+            ListBox1.Height = h/ 2  + 5;
+            ListBox1.Left = x;
+            ListBox1.Top = y + h + 5;
+            ListBox1.Click += ListBox1_Click;
 
         }
-        Bitmap bitmap = (Bitmap)Bitmap.FromFile("C:\\Sourse\\github\\TVP-Work\\TVP-projects\\Laba-2\\Image\\001.png");
+        private void ListBox1_Click(object sender, EventArgs e)
+        {
+            ListBox1.Visible = false;
+            if (ListBox1.SelectedIndex == 0)
+            {
+                bitmap1 = (Bitmap)Bitmap.FromFile("C:\\Sourse\\github\\TVP-Work\\TVP-projects\\Laba-2\\Image\\001.png");
+            }
+            else
+            {
+                bitmap1 = (Bitmap)Bitmap.FromFile("C:\\Sourse\\github\\TVP-Work\\TVP-projects\\Laba-2\\Image\\002.png");
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            ListBox1.Visible = true;
+        }
+
+       
         internal void Paint(Graphics g)
         {
             if (h == 70)
             {
-                g.DrawImage(bitmap, x, y, w, h);
+                g.DrawImage(bitmap1, x, y, w, h);
             }
             if(h == 35)
             {
