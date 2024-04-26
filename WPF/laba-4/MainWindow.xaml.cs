@@ -25,7 +25,7 @@ namespace WpfBaldGame
 
         private void LoadWords()
         {
-            using var reader = new StreamReader("slovar.txt");
+            using var reader = new StreamReader("slovar.txt", System.Text.Encoding.UTF8);
             string line;
             while ((line = reader.ReadLine()) != null)
             {
@@ -70,7 +70,7 @@ namespace WpfBaldGame
                 WordTextBox.Clear();
                 return;
             }
-            if (!Regex.IsMatch(word, @"^[a-z]+$"))
+            if (!Regex.IsMatch(word, @"^[а-яё]+$"))
             {
                 MessageBox.Show("Word can contain only letters.");
                 WordTextBox.Clear();
@@ -91,7 +91,8 @@ namespace WpfBaldGame
 
         private void GenerateLetter()
         {
-            _letter = (char)_random.Next('a', 'z' + 1);
+            var letters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+            _letter = letters[_random.Next(letters.Length)];
             LetterTextBlock.Text = _letter.ToString().ToUpper();
         }
     }
