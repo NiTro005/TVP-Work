@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace WpfBaldGame
+namespace BaldGame
 {
     public partial class MainWindow : Window
     {
