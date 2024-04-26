@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace WpfBaldGame
 {
@@ -16,13 +17,34 @@ namespace WpfBaldGame
         private readonly HashSet<string> _usedWords = new HashSet<string>();
         private int _score;
         private char _letter;
+        private DispatcherTimer _timer;
+        private int _timeLeft;
 
         public MainWindow()
         {
             InitializeComponent();
             WordTextBox.PreviewKeyDown += WordTextBox_KeyDown;
             LoadWords();
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += Timer_Tick;
 
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            _timeLeft--;
+            TimeTextBlock.Text = $"Time left: {_timeLeft} seconds";
+            if (_timeLeft == 0)
+            {
+                _timer.Stop();
+                _stopwatch.Stop();
+                StartButton.IsEnabled = true;
+                StopButton.IsEnabled = false;
+                WordTextBox.Clear();
+                LetterTextBlock.Text = string.Empty;
+                MessageBox.Show($"Time's up! Your score: {_score}");
+            }
         }
 
         private void LoadWords()
@@ -45,6 +67,9 @@ namespace WpfBaldGame
             StopButton.IsEnabled = true;
             WordTextBox.Focus();
             GenerateLetter();
+            _timeLeft = 60;
+            TimeTextBlock.Text = $"Time left: {_timeLeft} seconds";
+            _timer.Start();
 
         }
 

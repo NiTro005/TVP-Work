@@ -9,4 +9,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="kletka.png" />
+    <None Remove="kletka2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="kletka.png" />
+    <Resource Include="kletka2.jpg" />
+  </ItemGroup>
+
 </Project>
