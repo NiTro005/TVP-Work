@@ -20,7 +20,9 @@ namespace WpfBaldGame
         public MainWindow()
         {
             InitializeComponent();
+            WordTextBox.PreviewKeyDown += WordTextBox_KeyDown;
             LoadWords();
+
         }
 
         private void LoadWords()
@@ -43,6 +45,7 @@ namespace WpfBaldGame
             StopButton.IsEnabled = true;
             WordTextBox.Focus();
             GenerateLetter();
+
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
@@ -91,7 +94,7 @@ namespace WpfBaldGame
 
         private void GenerateLetter()
         {
-            var letters = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+            var letters = "абвгдеёжзийклмнопрстуфхцчшщэюя";
             _letter = letters[_random.Next(letters.Length)];
             LetterTextBlock.Text = _letter.ToString().ToUpper();
         }
