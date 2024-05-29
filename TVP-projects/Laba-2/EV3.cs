@@ -10,12 +10,12 @@ namespace Laba_2
 {
     internal class EV3
     {
-        int x, y;
-        int w, h;
-        ComboBox ComboBox1;
-        Button Button1;
-        ListBox ListBox1;
-        Bitmap bitmap1;
+        int x, y;//координаты левого верхнего угла объекта
+        int w, h;//ширина высота объекта
+        ComboBox ComboBox1;//элемент управления ComboBox для выбора режимов
+        Button Button1;//кнопка
+        ListBox ListBox1;//элемент управления ListBox для выбора единиц измерения
+        Bitmap bitmap1;//изображение, которое будет отображаться на объекте
 
         public EV3(int x, int y, int w, int h, Form1 form)
         {

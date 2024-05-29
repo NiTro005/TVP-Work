@@ -13,12 +13,14 @@ namespace Laba_2
 {
     public partial class Form1 : Form
     {
-        EV3 l1, l2, l3;
+        EV3 l1, l2, l3;//объявлены 3 переиенные типа  EV3, которое представляет собой графический объект.
         public System.Windows.Forms.ComboBox comboBox = new System.Windows.Forms.ComboBox();
         public System.Windows.Forms.Button but1 = new System.Windows.Forms.Button();
         public System.Windows.Forms.ListBox list1 = new System.Windows.Forms.ListBox();
         public Bitmap bitmap;
-
+        //создан элемент управления ComboBox для выбора режимов
+        //создан элемент управления ListBox для выбора единиц измерения
+        //объявлена переменная для хранения изображения
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = this.CreateGraphics();
@@ -26,7 +28,7 @@ namespace Laba_2
             l2.Paint(g);
             l3.Paint(g);
         }
-
+        //осуществляется рисование графических объектов l1-l2-l3
         public Form1()
         {
             InitializeComponent();
@@ -50,5 +52,6 @@ namespace Laba_2
 
         }
     }
-    
+    //вызывается метод, автоматически
+    //сгенерированный дизайнером форм, который инициализирует все элементы управления на форме.
 }
