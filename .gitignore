@@ -31,7 +31,6 @@
 *.out
 *.app
 
-.vs/
 x64/
-Debug/
+.vs/
 obj/
